@@ -14,7 +14,7 @@ const EXPERIENCES = [
 ];
 
 const PROJECTS = [
-  { title:"DesignOS",  desc:"Enterprise design system platform used by 3 clients", tech:["React","Storybook"],    color:"#00C2FF", icon:"◈" },
+  { title:"KJK Jewelry",  desc:"Enterprise design system platform used by 3 clients", tech:["React","Storybook"],    color:"#00C2FF", icon:"◈" },
   { title:"Kartify",   desc:"E-commerce storefront — 97/100 Lighthouse score",     tech:["Next.js","Stripe"],    color:"#7B61FF", icon:"◉" },
   { title:"DataPulse", desc:"Real-time analytics dashboard for fintech startup",   tech:["Vue.js","D3.js"],      color:"#00E5A0", icon:"◎" },
   { title:"FlowForge", desc:"Open-source drag-and-drop workflow builder",          tech:["React Flow","Node.js"],color:"#FF6B6B", icon:"◆" },
@@ -370,7 +370,7 @@ export default function Portfolio() {
                   <span style={{ color:c.accent }}>Gerarld</span>
                 </h1>
                 <p style={{ fontSize:13,color:c.textSub,lineHeight:1.75,marginBottom:16,maxWidth:460 }}>
-                  6+ years crafting high-performance UIs. Specializing in design systems, React architecture, and pixel-perfect products shipped fast.
+                  3+ years crafting high-performance UIs. Specializing in design systems, CMS architecture, and pixel-perfect products shipped fast.
                 </p>
                 <div style={{ display:"flex",gap:10,flexWrap:"wrap" }}>
                   <button className="glow-btn" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior:"smooth"})}>Hire me →</button>
