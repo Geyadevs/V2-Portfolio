@@ -6,7 +6,7 @@ import PHOTO2 from "./assets/Id-2.png";
 const EXPERIENCES = [
   { role:"Senior Frontend Developer", company:"TechCorp Solutions", period:"2022 – Present", location:"Remote",
     highlights:["Architected a design system adopted across 12 product teams, reducing UI development time by 40%.","Led a full migration from jQuery to React + TypeScript, boosting performance scores by 65%.","Mentored 5 junior developers through code reviews and pair programming sessions.","Shipped 8 major product features with 99.9% uptime across all deployments."],
-    tech:["React","TypeScript","GraphQL","Storybook"] },
+    tech:["React","Javascript","Wordpress","Shopify"] },
   { role:"Frontend Developer", company:"Pixel & Code Agency", period:"2020 – 2021", location:"Manila, PH",
     highlights:["Delivered 20+ responsive client websites from wireframe to production deployment.","Improved average Lighthouse scores from 55 to 92 across all client projects.","Introduced CI/CD pipelines with GitHub Actions, reducing deploy time by 70%.","Integrated RESTful APIs and third-party services for e-commerce platforms."],
     tech:["Vue.js","Nuxt","SCSS","Vercel"] },
