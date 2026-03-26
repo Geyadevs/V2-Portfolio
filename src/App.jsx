@@ -16,10 +16,12 @@ const EXPERIENCES = [
 ];
 
 const PROJECTS = [
-  { title:"KJK Jewelry",  desc:"A full-featured design system platform with live component preview, token management, and multi-theme export. Used by 3 enterprise clients.", tech:["React","Storybook"], color:"#00C2FF", icon:"◈" },
-  { title:"MagkahiOSA",   desc:"High-performance e-commerce storefront with SSR, dynamic product filtering, cart logic, and Stripe checkout. Scores 97/100 on Lighthouse.",   tech:["Next.js","Stripe"],   color:"#7B61FF", icon:"◉" },
-  { title:"Heartland Antlers", desc:"Real-time analytics dashboard with customizable widget grid, WebSocket data feeds, and CSV export. Built for a fintech startup.",              tech:["Vue.js","D3.js"],     color:"#00E5A0", icon:"◎" },
-  { title:"Bootzie", desc:"Open-source drag-and-drop automation builder with conditional logic, webhook triggers, and a visual node editor using React Flow.",           tech:["React Flow","Node.js"],color:"#FF6B6B", icon:"◆" },
+  { title:"KJK Jewelry",  desc:"A full-featured design system platform with live component preview, token management, and multi-theme export. Used by 3 enterprise clients.", tech:["Shopify"], color:"#00C2FF", icon:"◈" },
+  { title:"MagkahiOSA",   desc:"High-performance e-commerce storefront with SSR, dynamic product filtering, cart logic, and Stripe checkout. Scores 97/100 on Lighthouse.",   tech:["React","Tailwind CSS", "Node.js"],   color:"#7B61FF", icon:"◉" },
+  { title:"Heartland Antlers", desc:"Real-time analytics dashboard with customizable widget grid, WebSocket data feeds, and CSV export. Built for a fintech startup.",        tech:["Shopify","Wordpress"],     color:"#00E5A0", icon:"◎" },
+  { title:"Bootzie", desc:"Open-source drag-and-drop automation builder with conditional logic, webhook triggers, and a visual node editor using React Flow.",           tech:["Shopify"],color:"#FF6B6B", icon:"◆" },
+  { title:"Enchantress Gallery", desc:"Open-source drag-and-drop automation builder with conditional logic, webhook triggers, and a visual node editor using React Flow.",           tech:["Shopify"],color:"#FF6B6B", icon:"◆" },
+  { title:"Cheese etc.", desc:"Open-source drag-and-drop automation builder with conditional logic, webhook triggers, and a visual node editor using React Flow.",           tech:["Shopify"],color:"#FF6B6B", icon:"◆" },
 ];
 
 const SKILL_GROUPS = [
