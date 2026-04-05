@@ -654,7 +654,7 @@ export default function Portfolio() {
 
               {/* Quick facts */}
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
-                {[["Location","Philippines 🇵🇭"],["Focus","Frontend / CMS / Automation"],["Experience","3+ Years"],["Education","BS Information Technology"],["Languages","EN · Filipino"],["Status","Open to Work ✦"]].map(([lbl,val]) => (
+                {[["Location","Philippines 🇵🇭"],["Focus","Frontend / CMS / Automation"],["Experience","3+ Years"],["Education","BS Information Technology - 2024"],["Institution","University of Science and Technology of Southern Philippines"],["Languages","EN · Filipino"],["Status","Open to Work ✦"]].map(([lbl,val]) => (
                   <div key={lbl} style={{ background:c.bgAboutTag, border:`1px solid ${c.aboutTagBd}`, borderRadius:12, padding:"13px 16px" }}>
                     <div style={{ fontSize:10, color:c.textMuted, letterSpacing:"0.12em", textTransform:"uppercase", fontFamily:"'DM Mono',monospace", marginBottom:5 }}>{lbl}</div>
                     <div style={{ fontSize:13, color:c.text, fontWeight:500 }}>{val}</div>
