@@ -514,7 +514,7 @@ export default function Portfolio() {
   </div>
         {isDesktop && (
           <nav style={{ display:"flex",gap:4,alignItems:"center" }}>
-            {["#hero","#about","#skills","#experience","#projects","#contact"].map(h => (
+            {["#home","#about","#skills","#experience","#projects","#contact"].map(h => (
               <a key={h} href={h} style={{ fontSize:11,color:c.textMuted,textDecoration:"none",padding:"5px 12px",borderRadius:20,letterSpacing:"0.08em",textTransform:"uppercase",transition:"color 0.2s",fontFamily:"'DM Mono',monospace" }}
                 onMouseOver={e=>e.target.style.color=c.accent} onMouseOut={e=>e.target.style.color=c.textMuted}>
                 {h.replace("#","")}
@@ -539,7 +539,7 @@ export default function Portfolio() {
 
       {menuOpen && !isDesktop && (
         <div className="mobile-menu">
-          {["#hero","#about","#skills","#experience","#projects","#contact"].map(h => (
+          {["#home","#about","#skills","#experience","#projects","#contact"].map(h => (
             <a key={h} href={h} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>
               {h.replace("#","").charAt(0).toUpperCase()+h.replace("#","").slice(1)}
             </a>
@@ -549,9 +549,9 @@ export default function Portfolio() {
       )}
 
       {/* ════════════════════════════════════════════════════════
-          HERO
+          HOME
       ════════════════════════════════════════════════════════ */}
-      <section id="hero" className="grid-bg" style={{ position:"relative", zIndex:1 }}>
+      <section id="home" className="grid-bg" style={{ position:"relative", zIndex:1 }}>
         <div style={{ ...sec({ padding:`120px ${px} 110px` }), display:"flex", flexDirection:isMobile?"column":"row", alignItems:"center", gap:isMobile?48:80, justifyContent:"space-between" }}>
 
           {/* Text block */}
