@@ -774,30 +774,38 @@ export default function Portfolio() {
       {/* ════════════════════════════════════════════════════════
           PROJECTS
       ════════════════════════════════════════════════════════ */}
-      <section id="projects" style={{ position:"relative", zIndex:1 }}>
-        <div style={sec()}>
-          <span style={tag()}>// selected work</span>
-          <h2 style={{ ...hd(isMobile?32:42), marginBottom:16 }}>Things I've <span style={{ color:c.accent }}>built</span></h2>
-          <p style={{ fontSize:15, color:c.textMuted, marginBottom:52, lineHeight:1.7, maxWidth:560 }}>
-            A collection of products and tools that I've designed, engineered, and shipped from scratch.
-          </p>
+    <section id="projects" style={{ position:"relative", zIndex:1 }}>
+      <div style={sec()}>
+        <span style={tag()}>// selected work</span>
+        <h2 style={{ ...hd(isMobile?32:42), marginBottom:16 }}>Things I've <span style={{ color:c.accent }}>built</span></h2>
+        <p style={{ fontSize:15, color:c.textMuted, marginBottom:52, lineHeight:1.7, maxWidth:560 }}>
+          A collection of products and tools that I've designed, engineered, and shipped from scratch.
+        </p>
 
-          <div style={{ display:"grid", gridTemplateColumns:isMobile?"1fr":isTablet?"1fr 1fr":"1fr 1fr", gap:24 }}>
-            {PROJECTS.map((p,i) => (
-              <div key={i} className="proj-card">
-                <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:18 }}>
-                  <div style={{ width:44, height:44, borderRadius:12, background:`${p.color}18`, border:`1px solid ${p.color}40`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, color:p.color }}>{p.icon}</div>
-                  <div style={{ display:"flex", gap:8 }}>
-                    {p.tech.map(t => <Pill key={t} label={t}/>)}
-                  </div>
+        <div style={{ display:"grid", gridTemplateColumns:isMobile?"1fr":isTablet?"1fr 1fr":"1fr 1fr", gap:24 }}>
+          {PROJECTS.map((p,i) => (
+            <div key={i} className="proj-card">
+              {/* Icon row and pills stacked on mobile */}
+              <div style={{
+                display:"flex",
+                flexDirection: isMobile ? "column" : "row",
+                alignItems: isMobile ? "flex-start" : "center",
+                justifyContent:"space-between",
+                gap: isMobile ? 12 : 0,
+                marginBottom:18
+              }}>
+                <div style={{ width:44, height:44, borderRadius:12, background:`${p.color}18`, border:`1px solid ${p.color}40`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, color:p.color, flexShrink:0 }}>{p.icon}</div>
+                <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                  {p.tech.map(t => <Pill key={t} label={t}/>)}
                 </div>
-                <h3 style={{ fontSize:isMobile?18:22, fontWeight:700, fontFamily:"'Syne',sans-serif", color:c.text, marginBottom:12 }}>{p.title}</h3>
-                <p style={{ fontSize:14, color:c.textSub, lineHeight:1.8 }}>{p.desc}</p>
               </div>
-            ))}
-          </div>
+              <h3 style={{ fontSize:isMobile?18:22, fontWeight:700, fontFamily:"'Syne',sans-serif", color:c.text, marginBottom:12 }}>{p.title}</h3>
+              <p style={{ fontSize:14, color:c.textSub, lineHeight:1.8 }}>{p.desc}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       <div className="section-divider"/>
 
