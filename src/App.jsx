@@ -645,7 +645,7 @@ const FilterButtonStyle = {
             </p>
             <div style={{ display:"flex", gap:14, flexWrap:"wrap", marginBottom:48 }}>
               <button className="glow-btn" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior:"smooth"})}>Hire me →</button>
-              <button className="out-btn" onClick={() => window.open('https://drive.google.com/file/d/14griKgZuvcNDbwNyc310aRraOzmSuugH/view?usp=sharing', '_blank', 'noopener,noreferrer')}>See Resume</button>
+              <button className="out-btn" onClick={() => window.open('https://drive.google.com/file/d/1ris-LJHHGidy6S-NyWtYJ42nYTE_CCZW/view?usp=drivesdk', '_blank', 'noopener,noreferrer')}>See Resume</button>
             </div>
             {/* Stats row */}
             <div style={{ display:"flex", gap:isMobile?24:40, flexWrap:"wrap" }}>
