@@ -3,6 +3,7 @@ import PHOTO1 from "./assets/ID.png";
 import PHOTO2 from "./assets/Id-2.png";
 import logo from "./assets/logo-geyadevs.png";
 
+
 // ── Data ──────────────────────────────────────────────────────────────────────
 const EXPERIENCES = [
   { role:"Shopify Support Specialist and Developer", company:"KJK Jewelry", period:"2025 – Present", location:"Remote - New York, USA",
@@ -35,7 +36,56 @@ const SKILL_GROUPS = [
   { label:"CMS & Automation",       items:["Wordpress","Shopify", "Wix", "Klaviyo", "MailChimp", "Squarespace"] },
 ];
 
+const PROJECTSLINKS = [
+  { 
+    title:"Digital Marketing Campaigns",  
+    desc:"Email marketing campaigns, social media strategies, and SEO implementations that increased engagement by 150% and drove measurable business growth for multiple brands.", 
+    tech:["Email Marketing"], 
+    color:"#00C2FF", 
+    icon:"📧",
+    category:"marketing",
+    url:"https://drive.google.com/drive/folders/1jELtsdFCOLUCmjKXdvKaY3FsGNdkZy4m?usp=sharing" 
+  },
+  { 
+    title:"Social Media Content",  
+    desc:"Engaging Instagram, Facebook, and TikTok content strategies including hashtag research, community management, and viral campaign planning that grew follower counts by 200%+.", 
+    tech:["Instagram","TikTok","Facebook"], 
+    color:"#00C2FF", 
+    icon:"📱",
+    category:"marketing",
+    url:"https://drive.google.com/drive/folders/11SFOnQU3FCSLz4QUixfUdTK5mOqYQAIx?usp=sharing" 
+  },
+  { 
+    title:"Video Editing Reel", 
+    desc:"Professional video editing for social media, commercials, and brand stories including color grading, motion graphics, and sound design.",        
+    tech:["Premiere Pro","After Effects","DaVinci Resolve"],     
+    color:"#00E5A0", 
+    icon:"🎬",
+    category:"video",
+    url:"https://drive.google.com/drive/folders/1ntSBGcJ_NiA_rDaAdhs-VByHCHBauQzv?usp=sharing" 
+  },
+  { 
+    title:"Motion Graphics", 
+    desc:"Animated logos, explainer videos, and dynamic motion graphics that bring brands to life with smooth animations and engaging visual effects.", 
+    tech:["After Effects","Premiere Pro"],
+    color:"#00E5A0", 
+    icon:"✨",
+    category:"video",
+    url:"https://drive.google.com/drive/folders/1jlo1EAFF8kZv92cNuu89hSVPYWTm-Rzl?usp=sharing" 
+  },
+  { 
+    title:"Content Creation", 
+    desc:"Blog posts, website copy, and marketing materials crafted to engage target audiences and drive conversions through compelling storytelling.",  
+    tech:["Copywriting","Blogging","Newsletters"],
+    color:"#FF6B6B", 
+    icon:"✍️",
+    category:"marketing",
+    url:"https://drive.google.com/drive/folders/1ulHROn2qvariZEREHxGKwRl-aI6eXcSt?usp=sharing" 
+  },
+];
+
 const ALL_SKILLS = SKILL_GROUPS.flatMap(g => g.items);
+
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 const TECH_ICONS = {
@@ -151,6 +201,8 @@ const LIGHT = {
   mobileMenuBg:"rgba(240,246,255,0.99)",
   heroAccentLine:"rgba(0,100,220,0.12)",
 };
+
+
 
 // ── EmailJS config — fill these in after creating your EmailJS account ────────
 // Step-by-step setup instructions are in the comments below.
@@ -364,6 +416,32 @@ export default function Portfolio() {
   const c = dark ? DARK : LIGHT;
   const { isMobile, isTablet, isDesktop } = useBreakpoint();
 
+  const [FilteredPortfolio, setFilteredPortfolio] = useState(PROJECTSLINKS);
+  const [ActivePortfolioFilter, setActivePortfolioFilter] = useState("all");
+  
+  const FilterPortfolio = (category) => {
+    setActivePortfolioFilter(category);
+    if (category === "all") {
+      setFilteredPortfolio(PROJECTSLINKS);
+    } else {
+      setFilteredPortfolio(PROJECTSLINKS.filter(project => project.category === category));
+    }
+  };
+
+// Style for filter buttons
+const FilterButtonStyle = {
+  padding: "8px 16px",
+  background: "transparent",
+  border: `1px solid ${c.accent}40`,
+  color: c.text,
+  borderRadius: 30,
+  cursor: "pointer",
+  fontSize: 14,
+  fontWeight: 500,
+  transition: "all 0.2s ease",
+  fontFamily: "'Inter', sans-serif"
+};
+
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages]);
   useEffect(() => {
     const fn = (e) => { setGlowX((e.clientX/window.innerWidth)*100); setGlowY((e.clientY/window.innerHeight)*100); };
@@ -472,6 +550,7 @@ export default function Portfolio() {
 
         .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:${c.dotBg};animation:bl 1.2s infinite;margin:0 2px;}
         .dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+
 
         @keyframes bl{0%,80%,100%{opacity:.15}40%{opacity:1}}
         @keyframes pls{0%,100%{box-shadow:0 0 0 0 rgba(0,229,122,0.5)}50%{box-shadow:0 0 0 7px rgba(0,229,122,0)}}
@@ -808,6 +887,175 @@ export default function Portfolio() {
     </section>
 
       <div className="section-divider"/>
+
+      {/* ════════════════════════════════════════════════════════
+          PORTFOLIO SHOWCASE - Digital Marketing, Design & Video
+      ════════════════════════════════════════════════════════ */}
+      <div className="section-divider"/>
+      
+      <section id="portfolio" style={{ position:"relative", zIndex:1 }}>
+        <div style={sec()}>
+          <span style={tag()}>// sample works</span>
+          <h2 style={{ ...hd(isMobile?32:42), marginBottom:16 }}>Creative <span style={{ color:c.accent }}>portfolio</span></h2>
+          <p style={{ fontSize:15, color:c.textMuted, marginBottom:32, lineHeight:1.7, maxWidth:560 }}>
+            A showcase of my work in digital marketing, graphic design, and video editing — from concept to completion.
+          </p>
+
+          {/* Filter buttons */}
+          <div style={{ display:"flex", gap:12, marginBottom:40, flexWrap:"wrap" }}>
+            {[
+              { id: "all", label: "All Work", icon: "🎯" },
+              { id: "marketing", label: "Marketing", icon: "📈" },
+              { id: "design", label: "Design", icon: "🎨" },
+              { id: "video", label: "Video", icon: "🎬" },
+            ].map(filter => (
+              <button
+                key={filter.id}
+                onClick={() => FilterPortfolio(filter.id)}
+                style={{
+                  padding: "8px 20px",
+                  background: ActivePortfolioFilter === filter.id ? c.accent : "transparent",
+                  border: `1px solid ${ActivePortfolioFilter === filter.id ? c.accent : c.borderAccent}`,
+                  color: ActivePortfolioFilter === filter.id ? "#fff" : c.text,
+                  borderRadius: 40,
+                  cursor: "pointer",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  transition: "all 0.2s ease",
+                  fontFamily: "'DM Mono', monospace",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+                onMouseOver={e => {
+                  if (ActivePortfolioFilter !== filter.id) {
+                    e.currentTarget.style.background = c.pill;
+                    e.currentTarget.style.borderColor = c.accent;
+                  }
+                }}
+                onMouseOut={e => {
+                  if (ActivePortfolioFilter !== filter.id) {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.borderColor = c.borderAccent;
+                  }
+                }}
+              >
+                <span>{filter.icon}</span>
+                {filter.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Portfolio Grid */}
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr 1fr" : "1fr 1fr", 
+            gap: 24 
+          }}>
+            {FilteredPortfolio.map((project, i) => (
+              <a
+                key={i}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+                className="proj-card"
+              >
+                <div>
+                  {/* Header with icon and tech pills */}
+                  <div style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "flex-start" : "center",
+                    justifyContent: "space-between",
+                    gap: isMobile ? 12 : 0,
+                    marginBottom: 18
+                  }}>
+                    <div style={{ 
+                      width: 52, 
+                      height: 52, 
+                      borderRadius: 14, 
+                      background: `${project.color}18`, 
+                      border: `1px solid ${project.color}40`, 
+                      display: "flex", 
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      fontSize: 24, 
+                      color: project.color, 
+                      flexShrink: 0 
+                    }}>
+                      {project.icon}
+                    </div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                      {project.tech.slice(0, 3).map(t => <Pill key={t} label={t}/>)}
+                    </div>
+                  </div>
+                  
+                  <h3 style={{ 
+                    fontSize: isMobile ? 18 : 20, 
+                    fontWeight: 700, 
+                    fontFamily: "'Syne', sans-serif", 
+                    color: c.text, 
+                    marginBottom: 12,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between"
+                  }}>
+                    {project.title}
+                    <span style={{ 
+                      fontSize: 14, 
+                      color: c.accent, 
+                      opacity: 0.7,
+                      transition: "transform 0.2s"
+                    }}>↗</span>
+                  </h3>
+                  
+                  <p style={{ fontSize: 14, color: c.textSub, lineHeight: 1.8, marginBottom: 16 }}>
+                    {project.desc}
+                  </p>
+                  
+                  {/* Category badge */}
+                  <div style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                    padding: "4px 12px",
+                    borderRadius: 20,
+                    fontSize: 11,
+                    background: `${project.color}10`,
+                    color: project.color,
+                    border: `1px solid ${project.color}30`,
+                    fontFamily: "'DM Mono', monospace"
+                  }}>
+                    <span>
+                      {project.category === "marketing" && "📈"}
+                      {project.category === "design" && "🎨"}
+                      {project.category === "video" && "🎬"}
+                    </span>
+                    {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          
+          {/* Empty state message */}
+          {FilteredPortfolio.length === 0 && (
+            <div style={{
+              textAlign: "center",
+              padding: "60px 20px",
+              background: c.bgCard,
+              borderRadius: 20,
+              border: `1px solid ${c.border}`
+            }}>
+              <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>🎯</span>
+              <h3 style={{ fontSize: 20, color: c.text, marginBottom: 8 }}>More work coming soon</h3>
+              <p style={{ fontSize: 14, color: c.textSub }}>Check back later for additional projects!</p>
+            </div>
+          )}
+        </div>
+      </section>
+
 
       {/* ════════════════════════════════════════════════════════
           CONTACT
